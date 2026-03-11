@@ -9,96 +9,119 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play 1 dag i Ramadan.</tw-noscript></noscript></tw-story>
-<tw-storydata name="1 dag i Ramadan" startnode="23" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="CC00CA1C-EB7C-42ED-AC72-CCDBFC8B9863" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="BilOpdater" tags="" position="962.5,875" size="100,100">:: BilOpdater
-(set: $tro to $tro - 10)
-(display: &quot;Status&quot;)Du bliver kørt i skole. Du mister lidt tro for ikke at gøre noget fysisk. (- 10 tro)
+<tw-storydata name="1 dag i Ramadan" startnode="23" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="CC00CA1C-EB7C-42ED-AC72-CCDBFC8B9863" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="BilOpdater" tags="" position="962.5,875" size="100,100">(set: $tro to $tro - 10)
 
-[[På vej i skole|Idræt]]
+(display: &quot;Status&quot;)
+
+Du bliver kørt i skole. Du mister lidt tro for ikke at gøre noget fysisk.
+
+[[Fortsæt |Idræt]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="2" name="BønOpdater" tags="" position="900,1500" size="100,100">:: BønOpdater
-(set: $tro to $tro + 10)
+]</tw-passagedata><tw-passagedata pid="2" name="BønOpdater" tags="" position="900,1500" size="100,100">(set: $tro to $tro + 10)
 (set: $energi to $energi - 10)
-(display: &quot;Status&quot;)Du beder og føler dig rolig og styrket i troen. (+ 10 tro og -10 energi)
+
+(display: &quot;Status&quot;)
+
+Du beder og føler dig styrket i troen. 
 
 [[Fortsæt|Iftar]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="3" name="ComputerOpdater" tags="" position="1212.5,1250" size="100,100">:: ComputerOpdater
-(set: $glæde to $glæde + 10)
-(display: &quot;Status&quot;)Du spiller computer og får lidt glæde.
+]</tw-passagedata><tw-passagedata pid="3" name="ComputerOpdater" tags="" position="1212.5,1250" size="100,100">(set: $glæde to $glæde + 10)
+
+(display: &quot;Status&quot;)
+
+Du spiller computer og får lidt glæde.
 
 [[Fortsæt|FodboldBøn]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="4" name="CykelOpdater" tags="" position="825,875" size="100,100">:: CykelOpdater
+]</tw-passagedata><tw-passagedata pid="4" name="CykelOpdater" tags="" position="825,875" size="100,100">(set: $energi to $energi - 15)
+
+(display: &quot;Status&quot;)
+
+Du cykler i skole. Det kræver energi. 
+
+[[Fortsæt|Punkteret]]
+
+(if: $energi &lt;= 0)[
+(goto: &quot;Tab&quot;)
+]</tw-passagedata><tw-passagedata pid="5" name="EfterSkole" tags="" position="1100,1125" size="100,100">(set: $energi to $energi - 20)
+(set: $tro to $tro + 10)
+
+(display: &quot;Status&quot;)
+
+Skolen er slut. Hvad vil du lave nu?
+
+[[Lav lektier  &lt;span style=&quot;color:green;&quot;&gt;Tro +10&lt;/span&gt; // &lt;span style=&quot;color:red;&quot;&gt;Glæde -10&lt;/span&gt;|LektierOpdater]]  
+[[Tag en lur  &lt;span style=&quot;color:green;&quot;&gt;Energi +10&lt;/span&gt; |LurOpdater]]  
+[[Spil computer  &lt;span style=&quot;color:green;&quot;&gt;Glæde +10&lt;/span&gt;|ComputerOpdater]]
+
+(if: $energi &lt;= 0)[
+(goto: &quot;Tab&quot;)
+]</tw-passagedata><tw-passagedata pid="6" name="FamilieOpdater" tags="" position="850,1750" size="100,100">(set: $energi to $energi + 15)
+(set: $tro to $tro + 10)
+(set: $glæde to $glæde + 10)
+
+(display: &quot;Status&quot;)
+
+Du spiser med familien og nyder fællesskabet. Du føler dig glad, mæt og styrket.
+
+Du klarede Ramadan og fik sammanlagt &#39;&#39;(print:$energi + $tro + $glæde)&#39;&#39; points.
+
+[[Spil igen|Start]]
+
+(if: $energi &lt;= 0)[
+(goto: &quot;Tab&quot;)
+]</tw-passagedata><tw-passagedata pid="7" name="FodboldBøn" tags="" position="975,1375" size="100,100">(display: &quot;Status&quot;)
+
+Det er blevet tid til bøn, men dine venner spiller også fodbold. Du kan ikke nå begge dele.
+
+[[Tag til bøn &lt;span style=&quot;color:green;&quot;&gt;Tro +10&lt;/span&gt; // &lt;span style=&quot;color:red;&quot;&gt;Energi -10&lt;/span&gt;|BønOpdater]]  
+[[Spil fodbold  &lt;span style=&quot;color:green;&quot;&gt;Glæde +20&lt;/span&gt; // &lt;span style=&quot;color:red;&quot;&gt;Energi -15&lt;/span&gt;|FodboldOpdater]]
+
+(if: $energi &lt;= 0)[
+(goto: &quot;Tab&quot;)
+]</tw-passagedata><tw-passagedata pid="8" name="FodboldOpdater" tags="" position="1025,1500" size="100,100">(set: $glæde to $glæde + 20)
 (set: $energi to $energi - 15)
-(display: &quot;Status&quot;)Du cykler i skole. Det kræver energi. (- 15 energi)
 
-[[På vej i skole|Punkteret]]
+(display: &quot;Status&quot;)
 
-(if: $energi &lt;= 0)[
-(goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="5" name="EfterSkole" tags="" position="1100,1125" size="100,100">:: EfterSkole
-(display: &quot;Status&quot;)Skolen er slut. Hvad vil du lave nu?
-
-[[Lav lektier|LektierOpdater]]  
-[[Tag en lur|LurOpdater]]  
-[[Spil computer|ComputerOpdater]]
-
-(if: $energi &lt;= 0)[
-(goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="6" name="FamilieOpdater" tags="" position="850,1750" size="100,100">:: FamilieOpdater
-(set: $energi to $energi + 15)
-(set: $tro to $tro + 10)
-(set: $glæde to $glæde + 10)
-(display: &quot;Status&quot;)Du spiser med familien og nyder fællesskabet. Du føler dig glad, mæt og styrket.
-
-Du klarede Ramadan og fik sammanlagt &#39;&#39;(print:$energi + $tro + $glæde)&#39;&#39; points.
-
-[[Spil igen|Start]]
-
-(if: $energi &lt;= 0)[
-(goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="7" name="FodboldBøn" tags="" position="975,1375" size="100,100">:: FodboldBøn
-(display: &quot;Status&quot;)Det er blevet tid til bøn, men dine venner spiller også fodbold. Du kan ikke nå begge dele.
-
-[[Tag til bøn|BønOpdater]]  
-[[Spil fodbold|FodboldOpdater]]
-
-(if: $energi &lt;= 0)[
-(goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="8" name="FodboldOpdater" tags="" position="1025,1500" size="100,100">:: FodboldOpdater
-(set: $glæde to $glæde + 10)
-(set: $energi to $energi - 20)
-(display: &quot;Status&quot;)Du spiller fodbold med dine venner. Det er sjovt, men du bliver træt og tørstig. (+ 5 glæde og - 20 energi)
+Du spiller fodbold med dine venner. Det er sjovt, men du bliver træt og tørstig.
 
 [[Fortsæt|Iftar]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="9" name="ForklaringFajr" tags="" position="775,625" size="100,100">:: ForklaringFajr
-(display: &quot;Status&quot;)Fajr er den første af de fem daglige bønner i islam, bedt tidligt om morgenen.
+]</tw-passagedata><tw-passagedata pid="9" name="ForklaringFajr" tags="" position="775,625" size="100,100">&#39;&#39;Fahr&#39;&#39;
 
-[[Tilbage|RamadanStart]]</tw-passagedata><tw-passagedata pid="10" name="ForklaringSahur" tags="" position="650,625" size="100,100">:: ForklaringSahur
-(display: &quot;Status&quot;)Sahur er morgenmåltidet før solopgang under Ramadan.
+Fajr er den første af de fem daglige bønner i islam, bedt tidligt om morgenen.
 
-[[Tilbage|RamadanStart]]</tw-passagedata><tw-passagedata pid="11" name="HjælpVenOpdater" tags="" position="775,1125" size="100,100">:: HjælpVenOpdater
-(set: $energi to $energi - 10)
+[[Tilbage|RamadanStart]]</tw-passagedata><tw-passagedata pid="10" name="ForklaringSahur" tags="" position="650,625" size="100,100">&#39;&#39;Sahur&#39;&#39;
+
+Sahur er morgenmåltidet før solopgang under Ramadan.
+
+[[Tilbage|RamadanStart]]</tw-passagedata><tw-passagedata pid="11" name="HjælpVenOpdater" tags="" position="775,1125" size="100,100">(set: $energi to $energi - 10)
 (set: $tro to $tro + 10)
-(display: &quot;Status&quot;)Du hjælper din ven med cyklen. Det kræver energi, men du føler dig godt tilpas og styrket i troen. (- 10 energi og + 10 tro)
+
+(display: &quot;Status&quot;)
+
+Du hjælper din ven med cyklen. Det kræver energi, men du føler dig godt tilpas og styrket i troen.
 
 [[Fortsæt|Idræt]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="12" name="HurtigOpdater" tags="" position="962.5,1750" size="100,100">:: HurtigOpdater
-(set: $energi to $energi + 15)
+]</tw-passagedata><tw-passagedata pid="12" name="HurtigOpdater" tags="" position="962.5,1750" size="100,100">(set: $energi to $energi + 15)
 (set: $tro to $tro - 5)
-(display: &quot;Status&quot;)Du spiser hurtigt alene. Du får energi, men går glip af fællesskabet.
+
+(display: &quot;Status&quot;)
+
+Du spiser hurtigt alene. Du får energi, men går glip af fællesskabet.
 
 Du klarede Ramadan og fik sammanlagt &#39;&#39;(print:$energi + $tro + $glæde)&#39;&#39; points.
 
@@ -106,100 +129,118 @@ Du klarede Ramadan og fik sammanlagt &#39;&#39;(print:$energi + $tro + $glæde)&
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="13" name="Idræt" tags="" position="962.5,1000" size="100,100">:: Idræt
-(set: $energi to $energi - 20)
-(set: $tro to $tro + 10)
-(display: &quot;Status&quot;)Du har idræt. Det er hårdt at træne, når man faster, men det er sjovt at bevæge sig og samarbejde med klassekammeraterne.
+]</tw-passagedata><tw-passagedata pid="13" name="Idræt" tags="" position="962.5,1000" size="100,100">(display: &quot;Status&quot;)
 
-[[Efter skole|EfterSkole]]
+Du har idræt. Det er hårdt at træne, når man faster, men det er sjovt at bevæge sig og samarbejde med klassekammeraterne.
 
-(if: $energi &lt;= 0)[
-(goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="14" name="Iftar" tags="" position="900,1625" size="100,100">:: Iftar
-(display: &quot;Status&quot;)Solen er gået ned. Fasten kan nu brydes. Dette kaldes Iftar.
-
-[[Bryd fasten med familien|FamilieOpdater]]  
-[[Spis hurtigt alene|HurtigOpdater]]
+[[Efter skole &lt;span style=&quot;color:green;&quot;&gt;Tro +10&lt;/span&gt; // &lt;span style=&quot;color:red;&quot;&gt;Energi -20&lt;/span&gt;|EfterSkole]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="15" name="IgnorerOpdater" tags="" position="900,1125" size="100,100">:: IgnorerOpdater
-(set: $tro to $tro - 15)
-(display: &quot;Status&quot;)Du ignorerer din vens problem og mister lidt tro. (- 15 tro)
+]</tw-passagedata><tw-passagedata pid="14" name="Iftar" tags="" position="900,1625" size="100,100">(display: &quot;Status&quot;)
+
+Solen er gået ned. Fasten kan nu brydes. Dette kaldes Iftar.
+
+[[Bryd fasten med familien &lt;span style=&quot;color:green;&quot;&gt; Energi +15 &lt;/span&gt; (print:&quot;//&quot;) &lt;span style=&quot;color:green;&quot;&gt; Glæde +10 &lt;/span&gt; (print:&quot;//&quot;) &lt;span style=&quot;color:green;&quot;&gt;Tro +10&lt;/span&gt;|FamilieOpdater]]  
+[[Spis hurtigt alene &lt;span style=&quot;color:green;&quot;&gt;Energi +15&lt;/span&gt; // &lt;span style=&quot;color:red;&quot;&gt;Tro -5&lt;/span&gt;|HurtigOpdater]]
+
+(if: $energi &lt;= 0)[
+(goto: &quot;Tab&quot;)
+]</tw-passagedata><tw-passagedata pid="15" name="IgnorerOpdater" tags="" position="900,1125" size="100,100">(set: $tro to $tro - 15)
+
+(display: &quot;Status&quot;)
+
+Du ignorerer din vens problem og mister lidt tro.
 
 [[Fortsæt|Idræt]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="16" name="LektierOpdater" tags="" position="962.5,1250" size="100,100">:: LektierOpdater
-(set: $tro to $tro + 10)
+]</tw-passagedata><tw-passagedata pid="16" name="LektierOpdater" tags="" position="962.5,1250" size="100,100">(set: $tro to $tro + 10)
 (set: $glæde to $glæde - 10)
-(display: &quot;Status&quot;)Du laver lektier og får lidt ekstra tro.
+
+(display: &quot;Status&quot;)
+
+Du laver lektier og får lidt ekstra tro.
 
 [[Fortsæt|FodboldBøn]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="17" name="LurOpdater" tags="" position="1087.5,1250" size="100,100">:: LurOpdater
-(set: $energi to $energi + 10)
-(display: &quot;Status&quot;)Du tager en kort lur og får ekstra energi.
+]</tw-passagedata><tw-passagedata pid="17" name="LurOpdater" tags="" position="1087.5,1250" size="100,100">(set: $energi to $energi + 10)
+
+(display: &quot;Status&quot;)
+
+Du tager en kort lur og får ekstra energi.
 
 [[Fortsæt|FodboldBøn]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
 ]</tw-passagedata><tw-passagedata pid="18" name="NejRamadan" tags="" position="962.5,500" size="100,100">:: NejRamadan
-(display: &quot;Status&quot;)Du har valgt ikke at faste i år. Din familie respekterer dit valg.  
+(display: &quot;Status&quot;)
+
+Du har valgt ikke at faste i år. Din familie respekterer dit valg.  
 Spillet slutter.
 
 [[Start forfra|Start]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="19" name="Punkteret" tags="" position="837.5,1000" size="100,100">:: Punkteret
-(display: &quot;Status&quot;)På vej i skole ser du, at din vens cykel er punkteret.
+]</tw-passagedata><tw-passagedata pid="19" name="Punkteret" tags="" position="837.5,1000" size="100,100">(display: &quot;Status&quot;)
 
-[[Hjælp ven|HjælpVenOpdater]]  
-[[Ignorer|IgnorerOpdater]]
+På vej i skole ser du, at din vens cykel er punkteret.
 
-(if: $energi &lt;= 0)[
-(goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="20" name="RamadanStart" tags="" position="837.5,500" size="100,100">:: RamadanStart
-(display: &quot;Status&quot;)Solen er endnu ikke stået op.  
-Før fasten starter spiser mange muslimer [[Sahur|ForklaringSahur]].  
-Det er også tid til dagens første bøn, [[Fajr|ForklaringFajr]].
-
-Vil du stå op?
-
-[[Stå op til Sahur og Fajr|SahurTidlig]]  
-[[Sov længere|SovLænge]]
+[[Hjælp ven &lt;span style=&quot;color:green;&quot;&gt;Tro + 10&lt;/span&gt; // &lt;span style=&quot;color:red;&quot;&gt;Energi - 10&lt;/span&gt;|HjælpVenOpdater]]  
+[[Ignorer &lt;span style=&quot;color:red;&quot;&gt;Tro -15&lt;/span&gt;|IgnorerOpdater]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="21" name="SahurTidlig" tags="" position="900,625" size="100,100">:: SahurTidlig
-(set: $energi to $energi + 10)
+]</tw-passagedata><tw-passagedata pid="20" name="RamadanStart" tags="" position="837.5,500" size="100,100">(display: &quot;Status&quot;)
+
+Solen er  ikke stået op endnu.  
+Før fasten starter spiser mange muslimer [[Sahur|ForklaringSahur]] og beder [[Fajr|ForklaringFajr]].
+
+Vil du stå op og bede og spise??
+
+[[Stå op til Sahur og Fajr &lt;span style=&quot;color:green;&quot;&gt;Energi +10&lt;/span&gt; // &lt;span style=&quot;color:green;&quot;&gt;Tro +10&lt;/span&gt;|SahurTidlig]]  
+[[Sov længere &lt;span style=&quot;color:green;&quot;&gt;Energi +15 &lt;/span&gt; // &lt;span style=&quot;color:red;&quot;&gt;Tro -10&lt;/span&gt;|SovLænge]]
+
+(if: $energi &lt;= 0)[
+(goto: &quot;Tab&quot;) 
+]</tw-passagedata><tw-passagedata pid="21" name="SahurTidlig" tags="" position="900,625" size="100,100">(set: $energi to $energi + 10)
 (set: $tro to $tro + 10)
-(display: &quot;Status&quot;)Du står tidligt op, spiser Sahur og beder Fajr. Du føler dig frisk og klar til dagen.
+
+(display: &quot;Status&quot;)
+
+Du står tidligt op, spiser Sahur og beder Fajr. Du føler dig træt men klar til dagen.
 
 [[Tag i skole|Transport]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="22" name="SovLænge" tags="" position="1025,625" size="100,100">:: SovLænge
-(set: $energi to $energi + 5)
-(display: &quot;Status&quot;)Du har sovet længere og springer Sahur over. Du føler dig frisk, men starter dagen med lidt mindre energi.
+]</tw-passagedata><tw-passagedata pid="22" name="SovLænge" tags="" position="1025,625" size="100,100">(set: $energi to $energi + 15)
+(set: $tro to $tro - 10)
+
+(display: &quot;Status&quot;)
+
+Du har sovet længere og springer Sahur over. Du føler dig frisk og starter dagen fuld af energi.
 
 [[Tag i skole|Transport]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="23" name="Start" tags="" position="900,375" size="100,100">:: Start
-(set: $energi to 50)
+]</tw-passagedata><tw-passagedata pid="23" name="Start" tags="" position="900,375" size="100,100">(set: $energi to 50)
 (set: $tro to 0)
 (set: $glæde to 0)
 
-(display: &quot;Status&quot;)Du er 15 år og bor i Ishøj sammen med din familie.  
-Det er Ramadan – en måned, hvor mange muslimer faster fra solopgang til solnedgang.
+
+&#39;&#39;Start&#39;&#39;
+
+(display: &quot;Status&quot;)
+
+Du er 15 år og bor i Ishøj sammen med din familie som er muslimer.  
+Det er Ramadan, en måned hvor mange muslimer faster fra solopgang til solnedgang.
 
 Vil du faste?
 
@@ -208,17 +249,18 @@ Vil du faste?
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
-]</tw-passagedata><tw-passagedata pid="24" name="Status" tags="" position="1025,375" size="100,100">:: Status
-&lt;div style=&quot;border:2px solid #333;padding:8px 12px;background-color:#f9f9f9;color:#222;font-family:Arial;font-size:16px;border-radius:5px;display:inline-block;margin:0;line-height:1;&quot;&gt;
+]</tw-passagedata><tw-passagedata pid="24" name="Status" tags="" position="1025,375" size="100,100">&lt;div style=&quot;border:2px solid #883ea3;padding:10px 12px;background-color:#ae84bd;color:#ffffff;font-family:&#39;Trebuchet MS&#39;, Verdana, Arial, sans-serif;font-size:26px;font-weight:bold;border-radius:5px;display:block;width:fit-content;margin-left:auto;margin-right:auto;line-height:0.4;&quot;&gt;
 Energi: $energi | Tro: $tro | Glæde: $glæde
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Tab" tags="" position="1125,1725" size="100,100">:: Tab
-(display: &quot;Status&quot;)Din energi er faldet til 0. Du er for udmattet til at fortsætte fasten.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="Tab" tags="" position="1125,1725" size="100,100">(display: &quot;Status&quot;)
 
-[[Start forfra|Start]]</tw-passagedata><tw-passagedata pid="26" name="Transport" tags="" position="900,750" size="100,100">:: Transport
-(display: &quot;Status&quot;)Hvordan vil du komme i skole?
+Din energi er faldet til 0. Du er for udmattet til at fortsætte fasten.
 
-[[Cykel i skole|CykelOpdater]]  
-[[Blive kørt i skole|BilOpdater]]
+[[Start forfra|Start]]</tw-passagedata><tw-passagedata pid="26" name="Transport" tags="" position="900,750" size="100,100">(display: &quot;Status&quot;)
+
+Det er blevet tid til at tage i skole men hvordan vil du komme der hen
+
+[[Cykel i skole &lt;span style=&quot;color:red;&quot;&gt;Energi - 15&lt;/span&gt;|CykelOpdater]]  
+[[Blive kørt i skole &lt;span style=&quot;color:red;&quot;&gt;Tro -10&lt;/span&gt;|BilOpdater]]
 
 (if: $energi &lt;= 0)[
 (goto: &quot;Tab&quot;)
